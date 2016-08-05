@@ -23,7 +23,7 @@ namespace SignalRWebClient
         public static List<Player> players = new List<Player>()
 
         { new Player { PlayerID = "player1" ,GamerTag="XMARCASX",UserName="deadmpunk",FirstName="m",SecondName="s",XP=100000,clientID="1" },
-         new Player { PlayerID = "player2"  },
+         new Player { PlayerID = "player2"  }, };
 
         public Player join(string username)
         {
@@ -73,9 +73,9 @@ namespace SignalRWebClient
         // Note this 
         public static class HubState
 
-    {
+        {
 
-        public static List<Player> players = new List<Player>()
+            public static List<Player> players = new List<Player>()
 
         { new Player { PlayerID = "player1" ,GamerTag="XMARCASX",UserName="deadmpunk",FirstName="m",SecondName="s",XP=100000,clientID="1" },
          new Player { PlayerID = "player2"  },
@@ -86,24 +86,24 @@ namespace SignalRWebClient
 
 
 
-    }
-
-
-    public class MyHub1 : Hub
-    {
-        public void Hello()
-        {
-            Clients.All.hello();
         }
 
-        public void sendPlayers()
-        {
-            Clients.Caller.RecievePlayers(HubState.players);
-        }
 
-        public List<Player> getPlayers()
+        public class MyHub1 : Hub
         {
-            return HubState.players;
+            public void Hello()
+            {
+                Clients.All.hello();
+            }
+
+            public void sendPlayers()
+            {
+                Clients.Caller.RecievePlayers(HubState.players);
+            }
+
+            public List<Player> getPlayers()
+            {
+                return HubState.players;
+            }
         }
-    }
-}
+    } }
