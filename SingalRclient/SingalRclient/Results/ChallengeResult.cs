@@ -7,7 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Http;
 
-namespace AchievevementWebAPIExample.Results
+namespace   SignalRclient.Results
 {
     public class ChallengeResult : IHttpActionResult
     {
