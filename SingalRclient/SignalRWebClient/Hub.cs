@@ -5,6 +5,7 @@ using System.Web;
 using Microsoft.AspNet.SignalR;
 using Microsoft.Ajax.Utilities;
 using Microsoft.Xna.Framework;
+
 namespace SignalRWebClient
 {
     public class Player

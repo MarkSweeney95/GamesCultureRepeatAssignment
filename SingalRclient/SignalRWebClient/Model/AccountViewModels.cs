@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace AchievevementWebAPIExample.Models
+namespace SignalRWebClient.Models
 {
     // Models returned by AccountController actions.
 
