@@ -19,6 +19,7 @@ namespace Class_Library.Ship
         private Vector2 moveVector;
         private Vector2 newFireDirection = new Vector2(0, 1);
         private Vector2 currentFireDirection;
+        public int movementSpeed;
 
         private float Health;
         private float initSpeed;
