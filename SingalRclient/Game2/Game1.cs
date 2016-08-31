@@ -16,20 +16,37 @@ namespace Game2
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         SpriteFont font;
+
+
+        #region Variables
         string Message;
         Registration PlayerReg;
         Texture2D textureCollectable;
         string clientID;
         Player player;
+        Vector2 startVector = new Vector2(50, 250);
+
+        Texture2D backgroundTexture;
+        Texture2D[] textures;
+    
+   
+      
 
         enum currentDisplay { Selection, Game, Score };
         currentDisplay currentState = currentDisplay.Selection;
+
+        enum endGameStatuses { Win, Lose }
+        endGameStatuses gameOutcome = endGameStatuses.Win;
 
         List<Collectable> Collectables = new List<Collectable>();
         List<Collectable> pickUp = new List<Collectable>();
 
         static IHubProxy proxy;
-        HubConnection connection = new HubConnection("http://localhost:5553/");
+        HubConnection connection = new HubConnection("http://localhost:28042/");
+
+        #endregion
+
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -43,7 +60,7 @@ namespace Game2
             graphics.PreferredBackBufferWidth = 800; //set the size of the window
             graphics.PreferredBackBufferHeight = 600;
             graphics.ApplyChanges();
-
+            
             proxy = connection.CreateHubProxy("GameHub");
             clientID = connection.ConnectionId;
 

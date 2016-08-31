@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base Classes\Player.cs" />
+    <Compile Include="Base Classes\Projectile.cs" />
     <Compile Include="Base Classes\Sprite.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Collectable.cs" />

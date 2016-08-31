@@ -19,8 +19,8 @@ namespace Class_Library.Base_Classes
         {
             UserName = uName;
             Ship = _ship;
-            Weapon = _weapon;
-            Ship.weapon = Weapon;
+            weapon = _weapon;
+            Ship.weapon = weapon;
             isActive = true;
         }
 

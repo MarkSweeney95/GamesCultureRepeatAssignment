@@ -10,12 +10,7 @@ using Microsoft.AspNet.SignalR;
 namespace SignalRWebClient
 {
     // Note this class has to be the same on the Hub as the client. See the Hub Code.
-    public class Player
 
-    {
-        public string PlayerID;
-        // Add more fields here
-    }
 
     public class Program
     {

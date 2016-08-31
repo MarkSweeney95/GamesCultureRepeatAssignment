@@ -1,4 +1,5 @@
 ﻿//using ClassLibrary.Consumables;
+using Class_Library.Base_Classes;
 using Class_Library.Weapons;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
