@@ -11,7 +11,7 @@ using Game2;
 
 namespace SignalRWebClient
 {
-    public class Player
+    public class Player : Hub
 
     {
         public enum GAMESTATE { starting, joining, joined, playing, join };
@@ -25,9 +25,10 @@ namespace SignalRWebClient
         public int XP;
         public string clientID;
         public bool playing;
-        
+
         List<Player> joined = new List<Player>();
         List<Player> players = new List<Player>();
+
 
         public Player Join(string username)
         {
@@ -74,16 +75,16 @@ namespace SignalRWebClient
 
     }
 
-   
 
 
 
-        // Note this 
-        public static class HubState
 
-        {
+    // Note this 
+    public static class HubState
 
-            public static List<Player> players = new List<Player>()
+    {
+
+        public static List<Player> players = new List<Player>()
 
         { new Player { PlayerID = "player1" ,GamerTag="XMARCASX",UserName="deadmpunk",FirstName="m",SecondName="s",XP=100000,clientID="1" },
          new Player { PlayerID = "player2"  },
@@ -95,26 +96,26 @@ namespace SignalRWebClient
 
 
 
-        }
+    }
 
 
-        public class MyHub1 : Hub
+    public class MyHub1 : Hub
+    {
+        public void Hello()
         {
-            public void Hello()
-            {
-                Clients.All.hello();
-            }
-
-            public void sendPlayers()
-            {
-                Clients.Caller.RecievePlayers(HubState.players);
-            }
-
-            public List<Player> getPlayers()
-            {
-                return HubState.players;
-            }
+            Clients.All.hello();
         }
+
+        public void sendPlayers()
+        {
+            Clients.Caller.RecievePlayers(HubState.players);
+        }
+
+        public List<Player> getPlayers()
+        {
+            return HubState.players;
+        }
+    }
     public class GameHub : Hub
     {
 
@@ -212,19 +213,22 @@ namespace SignalRWebClient
                 Game1 game = new Game1();
                 game.Run();
             });
-        
 
-            System.Threading.Thread t2 =
-            new System.Threading.Thread(t =>
-            {
-                Game1 game1 = new Game1();
-                game1.Run();
-            });
-       
+
+        System.Threading.Thread t2 =
+        new System.Threading.Thread(t =>
+        {
+            Game1 game1 = new Game1();
+            game1.Run();
+        });
+
 
 
         #endregion
     }
+
+
+
 
 }
 

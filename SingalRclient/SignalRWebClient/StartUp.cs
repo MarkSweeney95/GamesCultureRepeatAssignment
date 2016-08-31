@@ -5,11 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNet.SignalR.Client;
 using Microsoft.AspNet.SignalR;
+using Owin;
+using Microsoft.Owin;
 
+[assembly: OwinStartup(typeof(SignalRWebClient.Program))]
 
 namespace SignalRWebClient
 {
-    // Note this class has to be the same on the Hub as the client. See the Hub Code.
+    
 
 
     public class Program
