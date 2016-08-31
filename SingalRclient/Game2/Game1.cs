@@ -33,6 +33,7 @@ namespace Game2
         Vector2 startVector = new Vector2(50, 250);
         Player ship_one;
         Projectile newPorjectile;
+        string[] menuOptions = new string[] { "Player_1", "Player_2"};
 
         bool Game_Started = false;
 
@@ -384,11 +385,11 @@ namespace Game2
 
                 switch (type.ToUpper()) //check for type and create the character
                 {
-                    case "FAST":
+                    case "Player_1":
                         currentState = currentDisplay.Game;
                         temp = new Player(new Character(id, textures[0], 10, 3), startVector, this);
                         break;
-                    case "NORMAL":
+                    case "PLayer_2":
                         currentState = currentDisplay.Game;
                         temp = new Player(new Character(id, textures[0], 7, 5), startVector, this);
                         break;
